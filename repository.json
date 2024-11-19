@@ -1,5 +1,5 @@
 {
-  "name": "Casper's Home Assistant Add-ons",
-  "url": "https://github.com/casperklein/homeassistant-addons",
-  "maintainer": "Casper Klein"
+  "name": "Mike's fork of Casper's Home Assistant Add-ons",
+  "url": "https://github.com/mikesplain/homeassistant-addons-pihole",
+  "maintainer": "Mike Splain"
 }

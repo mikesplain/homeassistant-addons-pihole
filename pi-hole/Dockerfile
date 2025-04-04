@@ -20,9 +20,6 @@ COPY	rootfs /
 # Disable x-frame-options for Home Assistant Ingress
 RUN	sedfile -i '/"X-Frame-Options"/ s/DENY/SAMEORIGIN/g' /etc/.pihole/advanced/pihole-admin.conf
 
-# Enable iCloud Relay
-RUN echo "BLOCK_ICLOUD_PR=false" >> /etc/pihole/pihole-FTL.conf
-
 # Remove docker-pi-hole update instructions
 RUN	sedfile -i 's|To install updates, <a href="https://github.com/pi-hole/docker-pi-hole#upgrading-persistence-and-customizations" \
 rel="noopener" target="_blank">replace this old container with a fresh upgraded image</a>.||g' /var/www/html/admin/scripts/pi-hole/php/footer.php

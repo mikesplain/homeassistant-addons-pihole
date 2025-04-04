@@ -1,4 +1,4 @@
-FROM	alpine:3.13 AS build
+FROM	alpine:3.21 AS build
 
 ENV	GIT_USER="milaq"
 ENV	GIT_REPO="YCast"

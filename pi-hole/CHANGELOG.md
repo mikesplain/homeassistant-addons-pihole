@@ -1,5 +1,59 @@
 # Changelog
 
+## 2025.03.1.1
+
+- Fix gravity update cronjob on sunday
+- Fix for [#32](https://github.com/casperklein/homeassistant-addons/issues/32)
+
+## 2025.03.1
+
+- [Pi-hole 6.0.6](https://github.com/pi-hole/pi-hole/releases/tag/v6.0.6)
+- [Web 6.1](https://github.com/pi-hole/web/releases/tag/v6.1)
+- [FTL 6.1](https://github.com/pi-hole/FTL/releases/tag/v6.1)
+
+## 2025.03.0.2
+
+- [DNSCrypt-Proxy 2.1.8](https://github.com/DNSCrypt/dnscrypt-proxy/releases/tag/2.1.8)
+
+## 2025.03.0.1
+
+- Improved DNSCrypt-Proxy startup
+- New add-on option: Update gravity on startup
+- supervisor.sh output is now colorized
+- Disabled Nginx access logging
+
+## 2025.03.0
+
+A new major version of Pi-hole has been released. Be sure to create a backup before updating.
+
+### Add-on Updates
+
+- The base image was switched from Debian to Alpine, reducing the add-on size by more than 50%.
+- NTP support has been added.
+- The Pi-hole process is now stopped before Home Assistant creates a backup, ensuring database consistency.
+- Extensive internal rewrites to support Pi-hole v6.
+
+### Pi-hole v6 Release Notes
+
+- [Introducing Pi-hole v6](https://pi-hole.net/blog/2025/02/18/introducing-pi-hole-v6/)
+- [FTL](https://github.com/pi-hole/FTL/releases/tag/v6.0)
+- [Web](https://github.com/pi-hole/web/releases/tag/v6.0)
+- [Core](https://github.com/pi-hole/pi-hole/releases/tag/v6.0)
+
+### Included Versions
+
+- [Pi-hole 6.0.5](https://github.com/pi-hole/pi-hole/releases/tag/v6.0.5)
+- [Web 6.0.2](https://github.com/pi-hole/web/releases/tag/v6.0.2)
+- [FTL 6.0.4](https://github.com/pi-hole/FTL/releases/tag/v6.0.4)
+
+## 2024.07.0.2
+
+- [dnscrypt-proxy 2.1.7](https://github.com/DNSCrypt/dnscrypt-proxy/releases/tag/2.1.7)
+
+## 2024.07.0.1
+
+- [dnscrypt-proxy 2.1.6](https://github.com/DNSCrypt/dnscrypt-proxy/releases/tag/2.1.6)
+
 ## 2024.07.0
 
 - [Pi-hole 5.18.3](https://github.com/pi-hole/pi-hole/releases/tag/v5.18.3)
@@ -23,9 +77,6 @@
 ## 2024.03.0
 
 - [Pi-hole 5.18](https://github.com/pi-hole/pi-hole/releases/tag/v5.18)
-
-## 2024.02.2
-
 
 ## 2024.02.1
 

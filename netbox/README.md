@@ -7,15 +7,19 @@
 
 [Netbox](https://github.com/netbox-community/netbox) is an open source web application designed to help manage and document computer networks.
 
+## Support
+
+If you like the add-on and would like to support my work, you might [![Buy me a coffee][coffee-shield]][paypal]
+
 ## Installation
 
-[![Open this add-on in your Home Assistant instance.][addon-badge]][addon]
+[![Open this add-on in your Home Assistant instance.][addon-shield]][addon]
 
 1. Add [this](https://github.com/casperklein/homeassistant-addons) Home Assistant add-ons repository to your Home Assistant instance or use the button above.
 1. Install the netbox add-on.
 1. Set *user* and *password* in the add-on options.
     * This will add a new superuser to netbox after the add-on starts.
-    * The credentials must be removed from the add-on options afterwards, otherwise the addon will not start.
+    * The credentials must be removed from the add-on options afterwards, otherwise the add-on will not start.
 1. Start the add-on.
 1. Click on the "OPEN WEB UI" button to open Netbox.
 
@@ -89,7 +93,7 @@ For example:
     netbox-qrcode
     netbox-metatype-importer
 
-The *requirements* are downloaded on addon start, so an internet connection is mandatory.
+The *requirements* are downloaded at add-on startup, so an internet connection is necessary.
 
 ## Screenshots
 
@@ -113,5 +117,8 @@ The *requirements* are downloaded on addon start, so an internet connection is m
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-blue.svg
 [version-shield]: https://img.shields.io/badge/dynamic/json?color=blue&label=version&query=version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcasperklein%2Fhomeassistant-addons%2Fmaster%2Fnetbox%2Fconfig.json
 [image-size-shield]: https://img.shields.io/docker/image-size/casperklein/homeassistant-netbox/latest
-[addon-badge]: https://my.home-assistant.io/badges/supervisor_addon.svg
+[addon-shield]: https://img.shields.io/badge/Show%20add--on%20on%20my-Home%20Assistant-blue?style=for-the-badge&logo=home-assistant
+
 [addon]: https://my.home-assistant.io/redirect/supervisor_addon/?addon=0da538cf_netbox&repository_url=https%3A%2F%2Fgithub.com%2Fcasperklein%2Fhomeassistant-addons
+[coffee-shield]: https://img.shields.io/badge/Buy_me_a_coffee-blue?logo=paypal&color=blue
+[paypal]: https://www.paypal.com/donate/?hosted_button_id=7C95GXVEQFE8C

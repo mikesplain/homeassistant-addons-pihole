@@ -1,5 +1,54 @@
 # Changelog
 
+## 4.2.6
+
+- [netbox 4.2.6](https://github.com/netbox-community/netbox/releases/tag/v4.2.6)
+
+## 4.2.5.1
+
+- Run `manage.py collectstatic` on add-on start, regardless of whether the database requires migration ([#28](https://github.com/casperklein/homeassistant-addons/issues/28)).
+- Include the `setuptools` and `wheel`  pip packages ([#29](https://github.com/casperklein/homeassistant-addons/issues/29)).
+
+## 4.2.5
+
+- [netbox 4.2.5](https://github.com/netbox-community/netbox/releases/tag/v4.2.5)
+
+## 4.2.4
+
+- [netbox 4.2.4](https://github.com/netbox-community/netbox/releases/tag/v4.2.4)
+
+## 4.2.3
+
+- [netbox 4.2.3](https://github.com/netbox-community/netbox/releases/tag/v4.2.3)
+
+## 4.2.2
+
+- [netbox 4.2.2](https://github.com/netbox-community/netbox/releases/tag/v4.2.2)
+
+## 4.2.1
+
+- [netbox 4.2.1](https://github.com/netbox-community/netbox/releases/tag/v4.2.1)
+
+## 4.1.11
+
+- [netbox 4.1.11](https://github.com/netbox-community/netbox/releases/tag/v4.1.11)
+
+## 4.1.10
+
+- [netbox 4.1.10](https://github.com/netbox-community/netbox/releases/tag/v4.1.10)
+
+## 4.1.9
+
+- [netbox 4.1.9](https://github.com/netbox-community/netbox/releases/tag/v4.1.9)
+
+## 4.1.8
+
+- [netbox 4.1.8](https://github.com/netbox-community/netbox/releases/tag/v4.1.8)
+
+## 4.1.7
+
+- [netbox 4.1.7](https://github.com/netbox-community/netbox/releases/tag/v4.1.7)
+
 ## 4.1.6
 
 - [netbox 4.1.6](https://github.com/netbox-community/netbox/releases/tag/v4.1.6)
@@ -49,7 +98,7 @@
 ## 4.0.6
 
 - [netbox 4.0.6](https://github.com/netbox-community/netbox/releases/tag/v4.0.6)
-- Addon log colored
+- Add-on log colored
 - [LOGIN_REQUIRED now defaults to true](https://github.com/netbox-community/netbox/issues/16107)
 
 ## 4.0.5
@@ -87,7 +136,7 @@
 
 - [netbox 3.7.3](https://github.com/netbox-community/netbox/releases/tag/v3.7.3)
 - Base image updated to Debian 12
-- PostgreSQL 13 updated to 15. The database migration can take some time on the first addon start.
+- PostgreSQL 13 updated to 15. The database migration can take some time on the first add-on start.
 - Improved startup time
   - Netbox database migrations are only run, when needed.
   - First Housekeeping background job run is delayed for 5 minutes.
@@ -424,7 +473,7 @@ This is a major release update. It might be worth, reading the changelogs :wink:
 
 - Base image upgraded to Debian 11 (PostgreSQL 11 --> 13, Redis 5.0.3 --> 6.0.5)
 - This and future releases migrates the netbox DB from PostgreSQL 11 to 13.
-- Make sure, to make a backup/snapshot of this addon before you update.
+- Make sure, to make a backup/snapshot of this add-on before you update.
 
 ## 2.11.12
 

@@ -2,7 +2,7 @@ FROM	debian:12-slim AS build
 
 ENV	GIT_USER="netbox-community"
 ENV	GIT_REPO="netbox"
-ENV	GIT_COMMIT="v4.1.6"
+ENV	GIT_COMMIT="v4.2.6"
 ENV	GIT_ARCHIVE="https://github.com/$GIT_USER/$GIT_REPO/archive/$GIT_COMMIT.tar.gz"
 
 #? https://docs.netbox.dev/en/stable/installation/3-netbox/#install-system-packages
@@ -72,6 +72,9 @@ WORKDIR	/opt/netbox
 # RUN	pip3 install --no-cache-dir --upgrade pip setuptools wheel \
 # RUN	pip3 install --no-cache-dir --upgrade pip wheel \
 RUN	uv pip install --no-cache-dir -r requirements.txt
+
+# Needed for some plugins, e.g. qrcode: https://github.com/casperklein/homeassistant-addons/issues/29
+RUN	uv pip install --no-cache-dir setuptools wheel
 
 # Setup netbox
 WORKDIR	/opt/netbox/netbox

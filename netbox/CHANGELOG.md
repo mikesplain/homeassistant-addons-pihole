@@ -228,7 +228,7 @@
 
 ## 3.5.1.1
 
-- [new option: `LOGIN_REQUIRED`](https://github.com/casperklein/homeassistant-addons/blob/master/netbox/README.md#option-login_required)
+- [new option: `LOGIN_REQUIRED`](https://github.com/casperklein/homeassistant-addons/blob/main/netbox/README.md#option-login_required)
 
 ## 3.5.1
 
@@ -299,7 +299,7 @@
 ## 3.3.8
 
 - [netbox 3.3.8](https://github.com/netbox-community/netbox/releases/tag/v3.3.8)
-- [Plugin support added](https://github.com/casperklein/homeassistant-addons/tree/master/netbox#plugins)
+- [Plugin support added](https://github.com/casperklein/homeassistant-addons/tree/main/netbox#plugins)
 
 ## 3.3.7
 

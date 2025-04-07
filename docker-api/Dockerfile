@@ -10,7 +10,7 @@ RUN	[ -z "$VERSION" ] && echo "Error: Build argument 'VERSION' is missing" && ex
 
 # Install packages
 RUN	apk upgrade --no-cache \
-&&	apk add --no-cache $PACKAGES
+  &&	apk add --no-cache $PACKAGES
 
 # Copy root filesystem
 COPY	rootfs /
@@ -32,4 +32,4 @@ LABEL	io.hass.type="addon"
 LABEL	io.hass.version="${VERSION}"
 LABEL	image="casperklein/homeassistant-docker-api:${VERSION}"
 LABEL	maintainer="Casper Klein"
-LABEL	url="https://github.com/casperklein/homeassistant-addons/tree/master/docker-api"
+LABEL	url="https://github.com/casperklein/homeassistant-addons/tree/main/docker-api"

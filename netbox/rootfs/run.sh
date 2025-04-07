@@ -105,7 +105,7 @@ if [ -d /data/postgresql/13 ]; then
 fi
 
 # remove stale pid
-rm /data/postgresql/15/main/postmaster.pid 2>/dev/null && _info "Removing stale PostgreSQL pid file.."
+rm /data/postgresql/15/main/postmain.pid 2>/dev/null && _info "Removing stale PostgreSQL pid file.."
 
 # set netbox option
 if [ "$LOGIN_REQUIRED" = false ]; then

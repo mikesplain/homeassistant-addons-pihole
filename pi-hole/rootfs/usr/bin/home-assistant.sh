@@ -62,7 +62,7 @@ else
 fi
 ln -s /data/pihole /etc/pihole
 
-# Not necessary; Pi-hole takes care of this --> https://github.com/pi-hole/pi-hole/blob/master/advanced/Templates/pihole-FTL-prestart.sh
+# Not necessary; Pi-hole takes care of this --> https://github.com/pi-hole/pi-hole/blob/main/advanced/Templates/pihole-FTL-prestart.sh
 # _status "Set permissions"
 # chown -R pihole:pihole /data/pihole
 # chown    root:root     /data/pihole/logrotate

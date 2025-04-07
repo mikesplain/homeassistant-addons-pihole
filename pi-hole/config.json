@@ -3,8 +3,13 @@
   "version": "2025.03.1.1",
   "slug": "pihole",
   "description": "Network-wide Ad Blocking",
-  "url": "https://github.com/mikesplain/homeassistant-addons-pihole/tree/master/pi-hole",
-  "arch": ["aarch64", "amd64", "armhf", "armv7"],
+  "url": "https://github.com/mikesplain/homeassistant-addons-pihole/tree/main/pi-hole",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armhf",
+    "armv7"
+  ],
   "webui": "[PROTO:ssl]://[HOST]:[PORT:80]",
   "ingress": true,
   "ingress_port": 80,
@@ -24,7 +29,9 @@
     "443/tcp": "UNPROTECTED web UI (not required for Ingress)",
     "123/udp": "NTP server port (not required, unless NTP is activated in Pi-hole)"
   },
-  "privileged": ["SYS_NICE"],
+  "privileged": [
+    "SYS_NICE"
+  ],
   "boot": "auto",
   "timeout": 60,
   "options": {

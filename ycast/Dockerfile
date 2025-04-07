@@ -21,7 +21,7 @@ RUN	tar --strip-component 1 -xzvf /$GIT_COMMIT.tar.gz && rm /$GIT_COMMIT.tar.gz
 
 # Install packages
 RUN	apk upgrade --no-cache \
-&&	apk add --no-cache $PACKAGES
+  &&	apk add --no-cache $PACKAGES
 
 # Install python packages
 RUN	pip3 install --no-cache-dir requests flask PyYAML Pillow
@@ -48,7 +48,7 @@ LABEL	io.hass.type="addon"
 LABEL	io.hass.version="${VERSION}"
 LABEL	image="casperklein/homeassistant-ycast:${VERSION}"
 LABEL	maintainer="Casper Klein"
-LABEL	url="https://github.com/casperklein/homeassistant-addons/tree/master/ycast"
+LABEL	url="https://github.com/casperklein/homeassistant-addons/tree/main/ycast"
 
 # If this is set to a non-empty string, Python won’t try to write .pyc files on the import of source modules.
 ENV     PYTHONDONTWRITEBYTECODE=1

@@ -23,9 +23,9 @@ RUN	[ -z "$VERSION" ] && echo "Error: Build argument 'VERSION' is missing" && ex
 # Install packages
 ENV	DEBIAN_FRONTEND=noninteractive
 RUN	apt-get update \
-&&	apt-get -y upgrade \
-&&	apt-get -y --no-install-recommends install $PACKAGES \
-&&	rm -rf /var/lib/apt/lists/*
+  &&	apt-get -y upgrade \
+  &&	apt-get -y --no-install-recommends install $PACKAGES \
+  &&	rm -rf /var/lib/apt/lists/*
 
 # Download source
 WORKDIR	/opt/netbox
@@ -38,9 +38,9 @@ COPY	rootfs /
 # Change supervisord defaults
 # Fix for: CRIT Supervisor is running as root. Privileges were not dropped because no user is specified in the config file.
 RUN	sedfile -i 's|\[supervisord\]|[supervisord]\nuser=root|'                            /etc/supervisor/supervisord.conf \
-# Fix for: CRIT Server 'unix_http_server' running without any HTTP authentication checking.
-&&	sedfile -i 's|\[unix_http_server\]|[unix_http_server]\nusername=foo\npassword=foo|' /etc/supervisor/supervisord.conf \
-&&	sedfile -i 's|\[supervisorctl\]|[supervisorctl]\nusername=foo\npassword=foo|'       /etc/supervisor/supervisord.conf
+  # Fix for: CRIT Server 'unix_http_server' running without any HTTP authentication checking.
+  &&	sedfile -i 's|\[unix_http_server\]|[unix_http_server]\nusername=foo\npassword=foo|' /etc/supervisor/supervisord.conf \
+  &&	sedfile -i 's|\[supervisorctl\]|[supervisorctl]\nusername=foo\npassword=foo|'       /etc/supervisor/supervisord.conf
 
 WORKDIR	/opt/netbox/netbox/netbox
 RUN	cp configuration_example.py configuration.py
@@ -79,17 +79,17 @@ RUN	uv pip install --no-cache-dir setuptools wheel
 # Setup netbox
 WORKDIR	/opt/netbox/netbox
 RUN	/etc/init.d/redis-server start \
-&&	pg_ctlcluster 15 main start \
-&&	sudo -u postgres psql < /db.sql \
-&&	rm -v /db.sql \
-&&	netbox-upgrade.sh \
-&&	/etc/init.d/redis-server stop \
-&&	pg_ctlcluster 15 main stop \
-#	Disable x-frame-options for usage with https://www.home-assistant.io/integrations/panel_iframe/
-&&	sedfile -i "s;X_FRAME_OPTIONS = 'SAMEORIGIN';X_FRAME_OPTIONS = 'ALLOWALL';" /opt/netbox/netbox/netbox/settings.py \
-#	Let PostgreSQL listen on all interfaces
-&&	sedfile -i "s/#listen_addresses =.*/listen_addresses = '*'/" /etc/postgresql/15/main/postgresql.conf \
-&&	echo 'host all all 0.0.0.0/0 md5' >> /etc/postgresql/15/main/pg_hba.conf
+  &&	pg_ctlcluster 15 main start \
+  &&	sudo -u postgres psql < /db.sql \
+  &&	rm -v /db.sql \
+  &&	netbox-upgrade.sh \
+  &&	/etc/init.d/redis-server stop \
+  &&	pg_ctlcluster 15 main stop \
+  #	Disable x-frame-options for usage with https://www.home-assistant.io/integrations/panel_iframe/
+  &&	sedfile -i "s;X_FRAME_OPTIONS = 'SAMEORIGIN';X_FRAME_OPTIONS = 'ALLOWALL';" /opt/netbox/netbox/netbox/settings.py \
+  #	Let PostgreSQL listen on all interfaces
+  &&	sedfile -i "s/#listen_addresses =.*/listen_addresses = '*'/" /etc/postgresql/15/main/postgresql.conf \
+  &&	echo 'host all all 0.0.0.0/0 md5' >> /etc/postgresql/15/main/pg_hba.conf
 
 # Customize redis
 RUN	sedfile -i 's|^daemonize yes$|daemonize no|' /etc/redis/redis.conf
@@ -106,7 +106,7 @@ RUN	sedfile -i 's|^daemonize yes$|daemonize no|' /etc/redis/redis.conf
 
 # Cleanup
 RUN     apt-get -y purge $PACKAGES_CLEAN \
-&&      apt-get -y autoremove
+  &&      apt-get -y autoremove
 
 # Build final image
 FROM	scratch
@@ -130,7 +130,7 @@ LABEL	io.hass.type="addon"
 LABEL	io.hass.version="${VERSION}"
 LABEL	image="casperklein/homeassistant-netbox:${VERSION}"
 LABEL	maintainer="Casper Klein"
-LABEL	url="https://github.com/casperklein/homeassistant-addons/tree/master/netbox"
+LABEL	url="https://github.com/casperklein/homeassistant-addons/tree/main/netbox"
 
 EXPOSE	80
 

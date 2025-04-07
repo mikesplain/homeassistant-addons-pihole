@@ -8,9 +8,9 @@ Add [this](https://github.com/casperklein/homeassistant-addons) repository to yo
 
 ## Add-ons
 
-- [Docker API](https://github.com/casperklein/homeassistant-addons/tree/master/docker-api)
-- [Netbox](https://github.com/casperklein/homeassistant-addons/tree/master/netbox)
-- [Pi-hole](https://github.com/casperklein/homeassistant-addons/tree/master/pi-hole)
-- [YCast](https://github.com/casperklein/homeassistant-addons/tree/master/ycast)
+- [Docker API](https://github.com/casperklein/homeassistant-addons/tree/main/docker-api)
+- [Netbox](https://github.com/casperklein/homeassistant-addons/tree/main/netbox)
+- [Pi-hole](https://github.com/casperklein/homeassistant-addons/tree/main/pi-hole)
+- [YCast](https://github.com/casperklein/homeassistant-addons/tree/main/ycast)
 
 [repository-shield]: https://img.shields.io/badge/Add%20repository%20to%20my-Home%20Assistant-blue?style=for-the-badge&logo=home-assistant

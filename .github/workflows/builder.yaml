@@ -1,4 +1,4 @@
-er
+name: Builder
 
 env:
   BUILD_ARGS: "--test"

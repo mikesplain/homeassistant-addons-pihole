@@ -4,7 +4,7 @@
   "slug": "pihole",
   "description": "Network-wide Ad Blocking",
   "url": "https://github.com/mikesplain/homeassistant-addons-pihole/tree/main/pi-hole",
-  "image": "ghcr.io/mikesplain/home-assistant-addon-pihole-{arch}",
+  "image": "ghcr.io/mikesplain/home-assistant-addon-pi-hole-{arch}",
   "arch": [
     "aarch64",
     "amd64",

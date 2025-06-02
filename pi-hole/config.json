@@ -8,8 +8,8 @@
   "arch": [
     "aarch64",
     "amd64",
-    "armhf",
-    "armv7"
+    "armv7",
+    "i386"
   ],
   "webui": "[PROTO:ssl]://[HOST]:[PORT:80]",
   "ingress": true,

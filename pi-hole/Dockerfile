@@ -1,4 +1,4 @@
-FROM pihole/pihole:2025.05.1 AS pihole
+FROM pihole/pihole:2025.05.0 AS pihole
 
 ARG TARGETPLATFORM
 ARG TARGETARCH

@@ -53,14 +53,25 @@ RUN sed -i 's| 7 PATH| 0 PATH|' /crontab.txt
 RUN rm -f /etc/nginx/http.d/default.conf /usr/bin/sedfile
 
 # Build dnscrypt-proxy from source #################################################################
-FROM golang:1.21 AS dnscrypt
+FROM golang:1.21-bullseye AS dnscrypt
 
+ARG TARGETPLATFORM
 ARG TARGETARCH
 ARG TARGETVARIANT
 ARG DNSCRYPT_VERSION="2.1.8"
 ENV URL="https://github.com/dnscrypt/dnscrypt-proxy/archive/$DNSCRYPT_VERSION.tar.gz"
 ENV GOARCH=$TARGETARCH
-ENV GOARM=${TARGETVARIANT#v}
+
+# Set GOARM based on architecture
+RUN if [ "$TARGETARCH" = "arm" ]; then \
+        if [ -z "$TARGETVARIANT" ] || [ "$TARGETVARIANT" = "v7" ]; then \
+            echo "Setting GOARM=7 for armv7" && \
+            export GOARM=7; \
+        else \
+            echo "Setting GOARM=${TARGETVARIANT#v}" && \
+            export GOARM=${TARGETVARIANT#v}; \
+        fi; \
+    fi
 
 ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update && apt-get -y upgrade

@@ -100,6 +100,9 @@ jobs:
             ghcr.io/${{ github.repository_owner }}/home-assistant-addon-${{ matrix.addon }}-${{ matrix.arch }}:latest
           build-args: |
             BUILD_ARCH=${{ matrix.arch }}
+            BUILD_VERSION=${{ fromJson(steps.info.outputs.version) }}
+            TARGETPLATFORM=linux/${{ matrix.arch }}
+            BUILD_ARCH=${{ matrix.arch }}
             BUILD_FROM=ghcr.io/hassio-addons/base-${{ matrix.arch }}:latest
             BUILD_VERSION=${{ fromJson(steps.info.outputs.version) }}
             VERSION=${{ fromJson(steps.info.outputs.version) }}

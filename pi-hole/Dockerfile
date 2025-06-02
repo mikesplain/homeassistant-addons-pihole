@@ -5,14 +5,15 @@ ARG TARGETARCH
 ARG TARGETVARIANT
 ARG	YQ_VERSION=v4.45.1
 ARG	SV_VERSION=0.3
+ARG BUILD_ARCH
+ARG BUILD_VERSION
+ARG VERSION=${BUILD_VERSION}
 
 SHELL	["/bin/bash", "-e", "-o", "pipefail", "-c"]
 
 # Ensure that build args are given
-ARG	BUILD_ARCH
-ARG	VERSION
-RUN	[ -z "$BUILD_ARCH" ] && echo "Error: Build argument 'BUILD_ARCH' is missing" && exit 1 || true
-RUN	[ -z "$VERSION" ] && echo "Error: Build argument 'VERSION' is missing" && exit 1 || true
+RUN	[ -n "$BUILD_ARCH" ] || (echo "Error: Build argument 'BUILD_ARCH' is missing" && exit 1)
+RUN	[ -n "$BUILD_VERSION" ] || (echo "Error: Build argument 'BUILD_VERSION' is missing" && exit 1)
 
 # Update base image packages and install additional software
 RUN <<EOF

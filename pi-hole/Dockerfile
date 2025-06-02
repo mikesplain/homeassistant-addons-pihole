@@ -1,4 +1,4 @@
-FROM	pihole/pihole:2025.04.0 AS pihole
+FROM	pihole/pihole:2025.05.1 AS pihole
 # Test change 2
 ARG	YQ_VERSION=v4.45.1
 ARG	SV_VERSION=0.3

@@ -4,7 +4,6 @@
 ![Supports amd64 architecture][amd64-shield]
 ![Supports aarch64 architecture][aarch64-shield]
 ![Supports armhf architecture][armhf-shield]
-![Supports armv7 architecture][armv7-shield]
 ![Docker image size][image-size-shield]
 
 The [Pi-hole](https://pi-hole.net/) is a DNS sinkhole that protects your devices from unwanted content without installing any client-side software.

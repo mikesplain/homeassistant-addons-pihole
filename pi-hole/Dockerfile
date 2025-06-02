@@ -64,14 +64,14 @@ ENV GOARCH=$TARGETARCH
 
 # Set GOARM based on architecture
 RUN if [ "$TARGETARCH" = "arm" ]; then \
-        if [ -z "$TARGETVARIANT" ] || [ "$TARGETVARIANT" = "v7" ]; then \
-            echo "Setting GOARM=7 for armv7" && \
-            export GOARM=7; \
-        else \
-            echo "Setting GOARM=${TARGETVARIANT#v}" && \
-            export GOARM=${TARGETVARIANT#v}; \
-        fi; \
-    fi
+	if [ -z "$TARGETVARIANT" ] || [ "$TARGETVARIANT" = "v7" ]; then \
+	echo "Setting GOARM=7 for armv7" && \
+	export GOARM=7; \
+	else \
+	echo "Setting GOARM=${TARGETVARIANT#v}" && \
+	export GOARM=${TARGETVARIANT#v}; \
+	fi; \
+	fi
 
 ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update && apt-get -y upgrade

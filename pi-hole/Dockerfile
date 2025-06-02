@@ -51,7 +51,7 @@ RUN	sedfile -i 's| 7 PATH| 0 PATH|' /crontab.txt
 RUN	rm /etc/nginx/http.d/default.conf /usr/bin/sedfile
 
 # Build dnscrypt-proxy from source #################################################################
-FROM	golang:bookworm AS dnscrypt
+FROM	golang:1.21-bullseye AS dnscrypt
 
 ARG	DNSCRYPT_VERSION="2.1.8"
 ENV	URL="https://github.com/dnscrypt/dnscrypt-proxy/archive/$DNSCRYPT_VERSION.tar.gz"

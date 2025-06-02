@@ -2,19 +2,7 @@ name: Builder
 
 env:
   BUILD_ARGS: "--test"
-  MONITORED_FILES: "build.yaml config.json Dock      - name: Build and push
-        uses: docker/build-push-action@v5.3.0
-        with:
-          context: ./${{ matrix.addon }}
-          file: ./${{ matrix.addon }}/Dockerfile
-          platforms: linux/${{ matrix.arch }}
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/${{ github.repository_owner }}/home-assistant-addon-pi-hole-${{ matrix.arch }}:${{ fromJson(steps.info.outputs.version) }}
-          build-args: |
-            BUILD_ARCH=${{ matrix.arch }}
-            BUILD_FROM=ghcr.io/hassio-addons/base-${{ matrix.arch }}:latest
-            BUILD_VERSION=${{ fromJson(steps.info.outputs.version) }}
-            VERSION=${{ fromJson(steps.info.outputs.version) }}s"
+  MONITORED_FILES: "build.yaml config.json Dockerfile rootfs"
 
 on:
   push:
@@ -107,8 +95,11 @@ jobs:
           file: ./${{ matrix.addon }}/Dockerfile
           platforms: linux/${{ matrix.arch }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/${{ github.repository_owner }}/home-assistant-addon-${{ matrix.addon }}-${{ matrix.arch }}:${{ fromJson(steps.info.outputs.version) }}
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/home-assistant-addon-${{ matrix.addon }}-${{ matrix.arch }}:${{ fromJson(steps.info.outputs.version) }}
+            ghcr.io/${{ github.repository_owner }}/home-assistant-addon-${{ matrix.addon }}-${{ matrix.arch }}:latest
           build-args: |
             BUILD_ARCH=${{ matrix.arch }}
             BUILD_FROM=ghcr.io/hassio-addons/base-${{ matrix.arch }}:latest
             BUILD_VERSION=${{ fromJson(steps.info.outputs.version) }}
+            VERSION=${{ fromJson(steps.info.outputs.version) }}

@@ -53,7 +53,7 @@ RUN sed -i 's| 7 PATH| 0 PATH|' /crontab.txt
 RUN rm -f /etc/nginx/http.d/default.conf /usr/bin/sedfile
 
 # Build dnscrypt-proxy from source #################################################################
-FROM golang:1.21-bullseye AS dnscrypt
+FROM golang:1.24-bullseye AS dnscrypt
 
 ARG TARGETPLATFORM
 ARG TARGETARCH
@@ -64,14 +64,14 @@ ENV GOARCH=$TARGETARCH
 
 # Set GOARM based on architecture
 RUN if [ "$TARGETARCH" = "arm" ]; then \
-	if [ -z "$TARGETVARIANT" ] || [ "$TARGETVARIANT" = "v7" ]; then \
-	echo "Setting GOARM=7 for armv7" && \
-	export GOARM=7; \
-	else \
-	echo "Setting GOARM=${TARGETVARIANT#v}" && \
-	export GOARM=${TARGETVARIANT#v}; \
-	fi; \
-	fi
+        if [ -z "$TARGETVARIANT" ] || [ "$TARGETVARIANT" = "v7" ]; then \
+            echo "Setting GOARM=7 for armv7" && \
+            export GOARM=7; \
+        else \
+            echo "Setting GOARM=${TARGETVARIANT#v}" && \
+            export GOARM=${TARGETVARIANT#v}; \
+        fi; \
+    fi
 
 ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update && apt-get -y upgrade
@@ -82,6 +82,7 @@ WORKDIR /build/dnscrypt-proxy
 
 # Compile with static linking (including all library code in the binary); needed for alpine image
 ENV CGO_ENABLED=0
+ENV GO111MODULE=on
 
 # Builds a Go binary without symbol tables and debugging information, reducing the file size.
 RUN go build -ldflags="-s -w" -mod vendor

@@ -54,7 +54,7 @@ RUN	sedfile -i 's| 7 PATH| 0 PATH|' /crontab.txt
 RUN	rm /etc/nginx/http.d/default.conf /usr/bin/sedfile
 
 # Build dnscrypt-proxy from source #################################################################
-FROM --platform=$BUILDPLATFORM golang:1.21 AS dnscrypt
+FROM --platform=$BUILDPLATFORM golang:1.24 AS dnscrypt
 
 ARG TARGETARCH
 ARG TARGETVARIANT

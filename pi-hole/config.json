@@ -1,6 +1,6 @@
-{
+e{
   "name": "Pi-hole",
-  "version": "2025.05.1.0",
+  "version": "2025.06.0.0",
   "slug": "pihole",
   "description": "Network-wide Ad Blocking",
   "url": "https://github.com/mikesplain/homeassistant-addons-pihole/tree/main/pi-hole",
